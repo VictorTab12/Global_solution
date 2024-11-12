@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Energy Reading Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1, h2 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input.form-control {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+
+        button[type="submit"] {
+            margin-top: 10px;
+            background-color: #0056b3;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #138496;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #007bff;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        hr {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Energy Reading Management System</h1>
+    <hr>
+    <h2>Energy Reading Update</h2>
+    <form action="#" th:action="@{/updateEnergyReading}" th:object="${energyReading}" method="POST">
+        <input type="hidden" th:field="*{id}"/>
+        <div class="form-group">
+            <input type="text" th:field="*{date}" placeholder="Date" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="text" th:field="*{consumption}" placeholder="Consumption" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="text" th:field="*{production}" placeholder="Production" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-info">Incentive Score Update</button>
+    </form>
+    <hr>
+    <a th:href="@{/incentiveScore}">Back to Incentive Score List</a>
+</div>
+</body>
+</html>
